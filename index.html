@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Berkant Restaurant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+
+
+        <ul class="navbar-nav">
+            <li class="nav-item" id="girisYap">
+                <button class="btn btn-warning btn-lg" type="button" data-toggle="modal" data-target="#exampleModal"
+                    href="#">Giriş Yap
+                </button>
+            </li>
+            <li class="nav-item" id="kayitOl">
+                <button class="btn btn-warning btn-lg" type="button" data-toggle="modal" data-target="#exampleModal2"
+                    href="#">Kayıt Ol
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-warning btn-lg" type="button" data-toggle="modal" data-target="#exampleModal3"
+                    href="#">Sepetim
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Restaurantin Adinin oldugu satir -->
+        <div class="row mt-4">
+            <div class="col-sm text-center">
+                <h2>Berkant Restaurant</h2>
+            </div>
+        </div>
+
+        <!-- Menü Yiyecek İcecek Tatlı Butonları satırı -->
+        <div class="row mt-5 text-center">
+            <div class="col-sm">
+                <button type="button" class="btn btn-warning btn-lg" onclick="anasayfaBtn()">Hepsi</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-warning btn-lg" onclick="menulerBtn()">Menüler</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-warning btn-lg" onclick="yemeklerBtn()">Yemekler</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-warning btn-lg" onclick="iceceklerBtn()">İçecekler</button>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-warning btn-lg" onclick="tatlilarBtn()">Tatlılar</button>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Kartların bulunduğu  satırlar -->
+        <div class="row mt-5">
+
+            <!-- Menüler -->
+            <div class="row mt-3" id="menu">
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/hamburger-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Hamburger Menü</h4>
+                            <p class="h6 text-muted">Dana Hamburger, Patates Kızartması ve İçecek</p>
+                            <h4>29,99 TL</h4> <button type="button" onclick="sepeteEkleHamburger()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/pizza-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Pizza Menü</h4>
+                            <p class="h6 text-muted">Karışık Pizza, Patates Kızartması ve İçecek
+                            </p>
+                            <h4>39,99 TL</h4> <button type="button" onclick="sepeteEklePizza()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/salata-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Salata Menü</h4>
+                            <p class="h6 text-muted">Mevsim Salatası ve İçecek
+                            </p>
+                            <h4>19,99 TL</h4> <button type="button" onclick="sepeteEkleSalataMenu()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/iskender-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>İskender Menü</h4>
+                            <p class="h6 text-muted">İskender Kebap ve İçecek
+                            </p>
+                            <h4>37,99 TL</h4> <button type="button" onclick="sepeteEkleIskender()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/borek-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Kıymali Börek Menü</h4>
+                            <p class="h6 text-muted">Kıymalı Börek ve İçecek
+                            </p>
+                            <h4>25,99 TL</h4> <button type="button" onclick="sepeteEkleBorek()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/pide-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Kuşbaşı Pide Menü</h4>
+                            <p class="h6 text-muted">Kuşbaşılı Pide ve İçecek
+                            </p>
+                            <h4>29,99 TL</h4> <button type="button" onclick="sepeteEklePide()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/balik-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Hamsi Balık Menü</h4>
+                            <p class="h6 text-muted">Hamsi Buğulama, Salata ve İçecek
+                            </p>
+                            <h4>39,99 TL</h4> <button type="button" onclick="sepeteEkleBalik()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/tavuk-menu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Tavuk Menü</h4>
+                            <p class="h6 text-muted">Tavuk Kanat, Patates Kızartması ve İçecek
+                            </p>
+                            <h4>23,99 TL</h4> <button type="button" onclick="sepeteEkleTavuk()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- Yemekler -->
+            <div class="row mt-3" id="yemek">
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/MANTİ.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Mantı</h4>
+                            <p class="h6 text-muted">Ev Usulü Kıymalı Mantı
+                            </p>
+                            <h4>45,99 TL</h4> <button type="button" onclick="sepeteEkleManti()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/pirinc-pilavi.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Pirinç Pilavı</h4>
+                            <p class="h6 text-muted">Terayağlı Pirinç Pilavı
+                            </p>
+                            <h4>14,99 TL</h4> <button type="button" onclick="sepeteEklePirinc()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/karniyarik.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Karniyarik</h4>
+                            <p class="h6 text-muted">Patlıcan ve Dana Kıymalı
+                            </p>
+                            <h4>29,99 TL</h4> <button type="button" onclick="sepeteEkleKarniyarik()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/patates-kizartma.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Patates Kızartması</h4>
+                            <p class="h6 text-muted">Patates Kızartması
+                            </p>
+                            <h4>9,99 TL</h4> <button type="button" onclick="sepeteEklePatates()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/salata.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Salata</h4>
+                            <p class="h6 text-muted">Bol Yeşillikli Salata
+                            </p>
+                            <h4>9,99 TL</h4> <button type="button" onclick="sepeteEkleSalata()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/makarna.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Makarna</h4>
+                            <p class="h6 text-muted">Kırmızı Biber Soslu Makarna
+                            </p>
+                            <h4>9,99 TL</h4> <button type="button" onclick="sepeteEkleMakarna()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/bulgur-pilavi.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Bulgur Pilavı</h4>
+                            <p class="h6 text-muted">Salçalı Bulgur Pilavı
+                            </p>
+                            <h4>11,99 TL</h4> <button type="button" onclick="sepeteEkleBulgur()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/yaprak-sarma.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Yaprak Sarma</h4>
+                            <p class="h6 text-muted">Zeytinyağlı Yaprak Sarma
+                            </p>
+                            <h4>17,99 TL</h4> <button type="button" onclick="sepeteEkleSarma()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+            <!-- İçecekler -->
+            <div class="row mt-3" id="icecek">
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/cay.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Çay</h4>
+                            <p class="h6 text-muted">Demleme Çay
+                            </p>
+                            <h4>4,99 TL</h4> <button type="button" onclick="sepeteEkleCay()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/kola.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Kola</h4>
+                            <p class="h6 text-muted">Buzlu Kola
+                            </p>
+                            <h4>9,99 TL</h4> <button type="button" onclick="sepeteEkleKola()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/icetea.cms" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Icetea</h4>
+                            <p class="h6 text-muted">Buzlu Icetea
+                            </p>
+                            <h4>7,99 TL</h4> <button type="button" onclick="sepeteEkleIcetea()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/turk-kahvesi.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Türk Kahvesi</h4>
+                            <p class="h6 text-muted">Türk Kahvesi
+                            </p>
+                            <h4>10,99 TL</h4> <button type="button" onclick="sepeteEkleKahve()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/cappucino.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Cappucino</h4>
+                            <p class="h6 text-muted">Cappucino
+                            </p>
+                            <h4>14,99 TL</h4> <button type="button" onclick="sepeteEkleCappucino()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/limonata.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Limonata</h4>
+                            <p class="h6 text-muted">Soğuk Sıkma Limonata
+                            </p>
+                            <h4>6,99 TL</h4> <button type="button" onclick="sepeteEkleLimonata()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/gazoz.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Gazoz</h4>
+                            <p class="h6 text-muted">Limonlu Gazoz
+                            </p>
+                            <h4>8,99 TL</h4> <button type="button" onclick="sepeteEkleGazoz()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="icecek">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/meyve-suyu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Meyve Suyu</h4>
+                            <p class="h6 text-muted">Soğuk Sıkma Mevyve Suyu
+                            </p>
+                            <h4>7,99 TL</h4> <button type="button" onclick="sepeteEkleMeyveSuyu()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Tatlılar -->
+            <div class="row mt-3" id="tatli">
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/tiramisu.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Tiramisu</h4>
+                            <p class="h6 text-muted">Tiramisu
+                            </p>
+                            <h4>19,99 TL</h4> <button type="button" onclick="sepeteEkleTiramisu()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/sutlac.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Sütlaç</h4>
+                            <p class="h6 text-muted">Fırında Sütlaç
+                            </p>
+                            <h4>14,99 TL</h4> <button type="button" onclick="sepeteEkleSutlac()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/baklava.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Baklava</h4>
+                            <p class="h6 text-muted">Antep Fıstıklı Baklava
+                            </p>
+                            <h4>25,99 TL</h4> <button type="button" onclick="sepeteEkleBaklava()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/sekerpare.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Şekerpare</h4>
+                            <p class="h6 text-muted">Şekerpare
+                            </p>
+                            <h4>9,99 TL</h4> <button type="button" onclick="sepeteEkleSekerpare()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/gullac.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Güllaç</h4>
+                            <p class="h6 text-muted">Sütlü Güllaç
+                            </p>
+                            <h4>17,99 TL</h4> <button type="button" onclick="sepeteEkleGullac()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/dondurma.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Dondurma</h4>
+                            <p class="h6 text-muted">Karamel Soslu Vanilyalı Dondurma
+                            </p>
+                            <h4>6,99 TL</h4> <button type="button" onclick="sepeteEkleDondurma()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/cheesecake.webp" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Cheesecake</h4>
+                            <p class="h6 text-muted">Meyve Soslu Cheesecake
+                            </p>
+                            <h4>21,99 TL</h4> <button type="button" onclick="sepeteEkleCheesecake()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm d-flex justify-content-center mt-3" name="tatli">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="./images/kadayif.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h4>Kadayıf</h4>
+                            <p class="h6 text-muted">Peynirli Kadayıf
+                            </p>
+                            <h4>24,99 TL</h4> <button type="button" onclick="sepeteEkleKadayif()"
+                                class="btn btn-outline-warning btn-sm">Sepete
+                                Ekle+</button>
+                            <div class="qty mt-3">
+                                <span class="minus bg-dark">-</span>
+                                <input type="number" class="count" name="qty" value="1">
+                                <span class="plus bg-dark">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2021 Company, Inc</p>
+    </footer>
+
+
+
+
+
+
+
+    <!-- Giriş Yap Modal'ı -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Giriş Yap</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" id="userNameLogin" class="form-control" placeholder="Username"
+                            aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+
+
+                    <div class="input-group flex-nowrap mt-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="password" id="passwordLogin" class="form-control" placeholder="Password"
+                            aria-label="Password" aria-describedby="addon-wrapping">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" onclick="formLog()" class="btn btn-warning">Giriş Yap</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Kayıt Ol Modal'ı -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Kayıt Ol</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="text" id="userNameRegister" class="form-control" placeholder="Username"
+                            aria-label="Username" aria-describedby="addon-wrapping">
+                    </div>
+
+                    <div class="input-group flex-nowrap mt-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="email" id="emailRegister" class="form-control" placeholder="E-mail"
+                            aria-label="email" aria-describedby="addon-wrapping">
+                    </div>
+
+                    <div class="input-group flex-nowrap mt-3">
+                        <div class="input-group-prepend">
+                        </div>
+                        <input type="password" id="passwordRegister" class="form-control" placeholder="Password"
+                            aria-label="Password" aria-describedby="addon-wrapping">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" onclick="formReg()" class="btn btn-warning">Kayıt Ol</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Sepetim Modal'ı -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sepetim</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="sepetimText">
+
+
+                    <!-- <h4>12 adet Pizza Menü x 39,99TL</h4>
+                    <h4>12 adet Pizza Menü x 39,99TL</h4>
+                    <h4>12 adet Pizza Menü x 39,99TL</h4>
+                    <h4>12 adet Pizza Menü x 39,99TL</h4>
+                    <h4>12 adet Pizza Menü x 39,99TL</h4>
+                    <h2>Toplam = 500tl</h2> -->
+
+
+                    <h4 id="toplamTutar"></h4>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-warning">Siparişi Onayla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
